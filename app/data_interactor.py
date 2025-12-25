@@ -65,8 +65,8 @@ class Contact:
         except Error as e:
             raise e
         finally:
-            connection = Contact.get_db_connection()
-            cursor = connection.cursor()
+            cursor.close()
+            connection.close()
 
     @staticmethod
     def delete_contact(id):
@@ -79,5 +79,5 @@ class Contact:
         except Error as e:
             raise e
         finally:
-            connection = Contact.get_db_connection()
-            cursor = connection.cursor()
+            cursor.close()
+            connection.close()
